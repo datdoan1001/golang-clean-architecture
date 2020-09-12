@@ -7,6 +7,7 @@ import (
 	"github.com/jinzhu/gorm"
 )
 
+// NewDBMock function mocks a DB conecction for testing
 func NewDBMock(t *testing.T) (*gorm.DB, sqlmock.Sqlmock, error) {
 	t.Helper()
 

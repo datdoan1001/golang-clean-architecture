@@ -3,14 +3,15 @@ package datastore
 import (
 	"log"
 
+	"github.com/garaujo/golang-clean-architecture/config"
 	"github.com/go-sql-driver/mysql"
 	"github.com/jinzhu/gorm"
-	"github.com/garaujo/golang-clean-architecture/config"
 )
 
+// NewDB function opens the database connection
 func NewDB() *gorm.DB {
 	DBMS := "mysql"
-	mySqlConfig := &mysql.Config{
+	mySQLConfig := &mysql.Config{
 		User:                 config.C.Database.User,
 		Passwd:               config.C.Database.Password,
 		Net:                  config.C.Database.Net,
@@ -22,7 +23,7 @@ func NewDB() *gorm.DB {
 		},
 	}
 
-	db, err := gorm.Open(DBMS, mySqlConfig.FormatDSN())
+	db, err := gorm.Open(DBMS, mySQLConfig.FormatDSN())
 
 	if err != nil {
 		log.Fatalln(err)

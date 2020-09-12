@@ -11,10 +11,12 @@ type userController struct {
 	userInteractor interactor.UserInteractor
 }
 
+// UserController interface
 type UserController interface {
 	GetUsers(c Context) error
 }
 
+// NewUserController function
 func NewUserController(us interactor.UserInteractor) UserController {
 	return &userController{us}
 }

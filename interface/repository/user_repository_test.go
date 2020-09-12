@@ -34,7 +34,7 @@ func TestUserRepository_FindAll(t *testing.T) {
 		arrange func(t *testing.T)
 		assert  func(t *testing.T, u []*model.User, err error)
 	}{
-		"正常なSQLのとき": {
+		"When SQL is normal": {
 			arrange: func(t *testing.T) {
 				u := model.User{ID: 1, Name: "manato", Age: "20"}
 				c := model.CreditCard{ID: 1, UserID: 1, Number: "111111"}
@@ -45,10 +45,10 @@ func TestUserRepository_FindAll(t *testing.T) {
 			assert: func(t *testing.T, u []*model.User, err error) {
 				assert.Nil(t, err)
 				assert.Equal(t, 1, len(u))
-				//assert.NotEmpty(t, u[0].CreditCard)	// Missing info in User struct model
+				//assert.NotEmpty(t, u[0].CreditCard)	// Missing attribute in User struct model
 			},
 		},
-		"エラーのSQLのとき": {
+		"When SQL returns errors": {
 			arrange: func(t *testing.T) {
 				u := model.User{ID: 1, Name: "manato", Age: "20"}
 				c := model.CreditCard{ID: 1, UserID: 1, Number: "111111"}

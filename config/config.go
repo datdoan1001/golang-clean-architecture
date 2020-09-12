@@ -28,14 +28,16 @@ type config struct {
 	}
 }
 
+// C is where all application configurations are stored
 var C config
 
+// ReadConfig reads application configuration
 func ReadConfig() {
 	Config := &C
 
 	viper.SetConfigName("config")
 	viper.SetConfigType("yml")
-	viper.AddConfigPath(filepath.Join("$GOPATH", "src", "github.com", "manakuro", "golang-clean-architecture", "config"))
+	viper.AddConfigPath(filepath.Join("$GOPATH", "src", "github.com", "garaujo", "golang-clean-architecture", "config"))
 	viper.AutomaticEnv()
 
 	if err := viper.ReadInConfig(); err != nil {
