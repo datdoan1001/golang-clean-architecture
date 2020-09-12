@@ -11,4 +11,10 @@ type User struct {
 	DeletedAt time.Time `json:"deleted_at"`
 }
 
+type CreditCard struct {
+	ID     uint   `gorm:"primary_key" json:"id"`
+	UserID uint   `json:"userid"`
+	Number string `json:"number"`
+}
+
 func (User) TableName() string { return "users" }

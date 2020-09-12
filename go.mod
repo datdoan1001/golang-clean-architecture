@@ -1,4 +1,6 @@
-module github.com/manakuro/golang-clean-architecture
+module github.com/garaujo/golang-clean-architecture
+
+go 1.15
 
 require (
 	github.com/DATA-DOG/go-sqlmock v1.3.3
